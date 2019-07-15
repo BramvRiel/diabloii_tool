@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#404040</color>
+    <color name="colorPrimaryDark">#202020</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorItemRare">#cccc52</color>
+    <color name="colorItemMagic">#4169e1</color>
+    <color name="colorItemNormal">#f5d2ad</color>
+    <color name="colorItemUnique">#a59263</color>
+    <color name="colorItemSet">#00ff00</color>
+    <color name="colorGrey">#cfcfcf</color>
+</resources>
