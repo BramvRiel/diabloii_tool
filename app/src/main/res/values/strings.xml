@@ -1,12 +1,13 @@
 <resources>
-    <string name="app_name">diabloii_tool</string>
+    <string name="app_name">Diablo II Assistent</string>
     <string name="welcome">Welcome</string>
     <string name="class_druid_name">Druid</string>
+    <string name="class_assassin_name">Assassin</string>
     <string name="title_activity_class">ClassActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_saysomething">Say something!</string>
     <string name="general">General</string>
 </resources>
