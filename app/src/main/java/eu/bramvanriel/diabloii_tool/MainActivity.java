@@ -6,6 +6,7 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -62,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_class, menu);
+        return true;
+    }
+
     public void writeSpeechInput(View view) {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
@@ -83,10 +91,14 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK && data != null) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     String text = result.get(0);
-                    speechResult.setText(text);
-                    if (diablo2GameState.TryCommand(text) != null) {
+                    String validcommand = diabloDialect.GetTranslatedCommand(text);
+                    if (validcommand != null) {
+                        diablo2GameState.EnterVoiceCommand(validcommand);
                         characterLevel.setText(diablo2GameState.CharacterLevel());
                         textToSpeech.speak("yay", TextToSpeech.QUEUE_FLUSH, null);
+                        speechResult.setText(validcommand);
+                    }else{
+                        speechResult.setText(getString(R.string.Dialect_UnkownCommand));
                     }
                 }
                 break;
